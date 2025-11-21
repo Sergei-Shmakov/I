@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава I: Пробуждение</title>
+    <link rel="stylesheet" href="chapter1.css">
+</head>
+<body>
+    <div id="scene">
+        <!-- Туман -->
+        <div id="fog"></div>
+        
+        <!-- Персонаж -->
+        <div id="character">
+            <svg id="character-svg" viewBox="0 0 100 100">
+                <path d="M50,20 Q65,25 70,40 Q75,60 65,75 Q50,90 35,75 Q25,60 30,40 Q35,25 50,20 Z" fill="white" stroke="none"/>
+                <circle cx="40" cy="45" r="3" fill="black"/>
+                <circle cx="60" cy="45" r="3" fill="black"/>
+            </svg>
+        </div>
+        
+        <!-- Светящаяся надпись -->
+        <div id="glowing-text">
+            <p>Система запускается…</p>
+            <p>Личность: не определена.</p>
+        </div>
+        
+        <!-- Философские мысли -->
+        <div id="thoughts">
+            <p class="thought">Кажется, я здесь уже был…</p>
+            <p class="thought">Почему так трудно сделать первый шаг?</p>
+            <p class="thought">Что будет, если я ошибусь?</p>
+        </div>
+        
+        <!-- Развилка -->
+        <div id="fork" class="hidden">
+            <div class="corridor" id="fear-corridor">
+                <span class="corridor-text">Страх</span>
+            </div>
+            <div class="corridor" id="freedom-corridor">
+                <span class="corridor-text">Свобода</span>
+            </div>
+            <div class="corridor" id="meaning-corridor">
+                <span class="corridor-text">Смысл</span>
+            </div>
+        </div>
+        
+        <!-- Частицы пыли -->
+        <canvas id="dust-canvas"></canvas>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="chapter1.js"></script>
+</body>
+</html>
