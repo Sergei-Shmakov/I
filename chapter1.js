@@ -8,6 +8,7 @@ let canvas, ctx;
 // DOM элементы
 const scene = document.getElementById('scene');
 const character = document.getElementById('character');
+const characterSvg = document.getElementById('character-svg');
 const fog = document.getElementById('fog');
 const glowingText = document.getElementById('glowing-text');
 const thoughts = document.getElementById('thoughts');
@@ -297,3 +298,38 @@ window.addEventListener('wheel', function(e) {
 window.addEventListener('touchmove', function(e) {
     e.preventDefault();
 }, { passive: false });
+
+// Функция для анимации нижней части приведения
+function animateGhostBottom() {
+    const ghostBottom = document.getElementById('ghost-bottom');
+    if (ghostBottom) {
+        // Создаем анимацию для волнистого движения нижней части
+        let waveOffset = 0;
+        function wave() {
+            waveOffset += 0.05;
+            
+            // Рассчитываем новые координаты для создания волнистого эффекта
+            const baseY = 65;
+            const amplitude = 3;
+            
+            const newD = `M30,${baseY + Math.sin(waveOffset) * amplitude} 
+                         Q35,${baseY + 5 + Math.sin(waveOffset + 0.5) * amplitude} 
+                         40,${baseY + 3 + Math.sin(waveOffset + 1) * amplitude} 
+                         Q45,${baseY + 7 + Math.sin(waveOffset + 1.5) * amplitude} 
+                         50,${baseY + 5 + Math.sin(waveOffset + 2) * amplitude} 
+                         Q55,${baseY + 7 + Math.sin(waveOffset + 2.5) * amplitude} 
+                         60,${baseY + 3 + Math.sin(waveOffset + 3) * amplitude} 
+                         Q65,${baseY + 5 + Math.sin(waveOffset + 3.5) * amplitude} 
+                         70,${baseY + Math.sin(waveOffset + 4) * amplitude}`;
+            
+            ghostBottom.setAttribute('d', newD.replace(/\s+/g, ' ').trim());
+            requestAnimationFrame(wave);
+        }
+        wave();
+    }
+}
+
+// Запускаем анимацию нижней части после инициализации
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(animateGhostBottom, 1000); // Запускаем анимацию через 1 секунду после загрузки
+});
