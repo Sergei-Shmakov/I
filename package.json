@@ -1,0 +1,33 @@
+{
+  "name": "consciousness-journey",
+  "version": "1.0.0",
+  "description": "Интерактивная веб-игра: путешествие по сознанию человека, который пытается понять, кем он хочет стать в будущем.",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000",
+    "dev": "http-server -p 8000 -o",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "game",
+    "interactive",
+    "philosophy",
+    "web",
+    "scroll",
+    "storytelling",
+    "consciousness"
+  ],
+  "author": "Web Developer",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/consciousness-journey.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/consciousness-journey/issues"
+  },
+  "homepage": "https://github.com/your-username/consciousness-journey#readme"
+}

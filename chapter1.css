@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background-color: #0a0a0a;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+}
+
+#scene {
+    position: relative;
+    width: 100%;
+    height: 300vh; /* Даем высоту для скролла */
+    background: linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
+    overflow: hidden;
+}
+
+/* Туман */
+#fog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 50% 20%, rgba(30, 30, 50, 0.2) 0%, transparent 70%),
+        radial-gradient(circle at 20% 80%, rgba(20, 20, 40, 0.3) 0%, transparent 70%),
+        radial-gradient(circle at 80% 60%, rgba(25, 25, 45, 0.2) 0%, transparent 70%);
+    opacity: 0.9;
+    pointer-events: none;
+    transition: opacity 2s ease;
+}
+
+/* Персонаж */
+#character {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: transform 0.5s ease;
+}
+
+#character-svg {
+    width: 60px;
+    height: 90px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+/* Анимация дыхания простыни */
+#character {
+    animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.02); }
+}
+
+/* Светящаяся надпись */
+#glowing-text {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    text-shadow: 0 0 10px rgba(100, 150, 255, 0.7);
+    animation: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.6; text-shadow: 0 0 10px rgba(100, 150, 255, 0.7); }
+    50% { opacity: 0.9; text-shadow: 0 0 20px rgba(100, 150, 255, 0.9), 0 0 30px rgba(80, 120, 255, 0.6); }
+}
+
+/* Философские мысли */
+#thoughts {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.thought {
+    margin: 10px 0;
+    font-style: italic;
+    color: rgba(200, 200, 220, 0.8);
+    text-shadow: 0 0 5px rgba(100, 100, 150, 0.5);
+}
+
+/* Развилка коридоров */
+#fork {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    max-width: 800px;
+    z-index: 20;
+}
+
+.corridor {
+    width: 25%;
+    height: 200px;
+    background: linear-gradient(to bottom, rgba(30, 30, 50, 0.6), rgba(10, 10, 20, 0.8));
+    border: 1px solid rgba(100, 100, 150, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.corridor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(100, 150, 255, 0.1) 50%, transparent 60%);
+    background-size: 200% 200%;
+    animation: tunnel-glow 3s ease infinite;
+    opacity: 0.5;
+}
+
+.corridor:hover {
+    background: linear-gradient(to bottom, rgba(50, 50, 80, 0.7), rgba(20, 20, 40, 0.9));
+    border: 1px solid rgba(150, 180, 255, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(100, 150, 255, 0.4);
+}
+
+.corridor-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgba(200, 220, 255, 0.9);
+    text-shadow: 0 0 10px rgba(100, 150, 255, 0.7);
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    text-wrap: wrap;
+}
+
+@keyframes tunnel-glow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Частицы пыли */
+#dust-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Анимации при скролле */
+.scene-awakened #fog {
+    opacity: 0.3;
+}
+
+.scene-awakened #character {
+    animation: breathe-awakened 2s ease-in-out infinite;
+}
+
+@keyframes breathe-awakened {
+    0%, 100% { transform: translate(-50%, -50%) scale(1.05); }
+    50% { transform: translate(-50%, -50%) scale(1.07); }
+}
+
+.scene-awakened #glowing-text {
+    top: 15%;
+    font-size: 1.5rem;
+}
+
+.scene-activated #fork {
+    display: flex;
+    animation: fade-in 1s ease forwards;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Стили для эффекта скролла */
+#scene::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Стили для перехода в коридор */
+.transitioning {
+    pointer-events: none;
+}
+
+.transitioning #character {
+    animation: walk-to-corridor 2s ease-in forwards;
+}
+
+@keyframes walk-to-corridor {
+    to { transform: translate(-50%, -50%) scale(0.1) translateX(2000%); }
+}

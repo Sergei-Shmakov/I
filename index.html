@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Путешествие по сознанию - Веб-игра</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e6e6e6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(20, 20, 30, 0.8);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(100, 100, 200, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 100, 150, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #a0a0ff;
+            text-shadow: 0 0 10px rgba(160, 160, 255, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #c0c0e0;
+        }
+        
+        .description {
+            margin: 25px 0;
+            line-height: 1.6;
+            color: #d0d0ff;
+        }
+        
+        .character-preview {
+            margin: 30px 0;
+            display: inline-block;
+        }
+        
+        .character-svg {
+            width: 100px;
+            height: 150px;
+        }
+        
+        .character-svg path {
+            fill: white;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+        }
+        
+        .character-svg circle {
+            fill: black;
+        }
+        
+        .start-button {
+            background: linear-gradient(45deg, #5a5aaa, #3a3a8a);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(100, 100, 255, 0.4);
+        }
+        
+        .start-button:hover {
+            background: linear-gradient(45deg, #6a6abb, #4a4a9a);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(120, 120, 255, 0.6);
+        }
+        
+        .features {
+            margin: 30px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: left;
+        }
+        
+        .feature {
+            background: rgba(30, 30, 50, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid #7a7aff;
+        }
+        
+        .feature h3 {
+            color: #b0b0ff;
+            margin-bottom: 10px;
+        }
+        
+        .feature p {
+            color: #d0d0ff;
+            font-size: 0.95rem;
+        }
+        
+        .philosophy-quote {
+            font-style: italic;
+            margin: 25px 0;
+            padding: 15px;
+            border-left: 3px solid #9a9aff;
+            background: rgba(30, 30, 50, 0.4);
+            color: #c0c0ff;
+        }
+        
+        footer {
+            margin-top: 40px;
+            color: #a0a0c0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌌 Путешествие по сознанию</h1>
+        <div class="subtitle">Интерактивное философское приключение</div>
+        
+        <div class="description">
+            <p>Погрузитесь в атмосферное путешествие по лабиринту собственного разума. Вы управляете силуэтом человека в белой простыне, блуждающим по коридорам подсознания, принимая решения, разгадывая головоломки и постепенно понимая, кем хотите стать в будущем.</p>
+        </div>
+        
+        <div class="character-preview">
+            <svg class="character-svg" viewBox="0 0 100 100">
+                <path d="M50,20 Q65,25 70,40 Q75,60 65,75 Q50,90 35,75 Q25,60 30,40 Q35,25 50,20 Z" />
+                <circle cx="40" cy="45" r="3" />
+                <circle cx="60" cy="45" r="3" />
+            </svg>
+        </div>
+        
+        <div class="philosophy-quote">
+            "Путь к себе лежит через самого себя. Иногда, чтобы понять, кто ты, нужно пройти через то, кем ты не являешься."
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>챕тер 1: Пробуждение</h3>
+                <p>Начните с пустой комнаты, где ваш персонаж пробуждается. Используйте скролл, чтобы разогнать туман и освободить сознание.</p>
+            </div>
+            <div class="feature">
+                <h3>Выбор пути</h3>
+                <p>Столкнитесь с развилкой между страхом, свободой и смыслом. Каждый выбор ведет к различным последствиям.</p>
+            </div>
+            <div class="feature">
+                <h3>Интерактивные головоломки</h3>
+                <p>Решайте визуальные и логические задачи, чтобы продвигаться дальше по лабиринту вашего разума.</p>
+            </div>
+        </div>
+        
+        <button class="start-button" onclick="startGame()">Начать путешествие</button>
+    </div>
+    
+    <footer>
+        <p>Веб-игра © 2025 | Создано с использованием HTML, CSS, JavaScript и GSAP</p>
+    </footer>
+    
+    <script>
+        function startGame() {
+            window.location.href = 'chapter1.html';
+        }
+        
+        // Анимация для персонажа
+        document.addEventListener('DOMContentLoaded', function() {
+            const character = document.querySelector('.character-svg');
+            if (character) {
+                // Добавляем анимацию дыхания
+                character.style.animation = 'breathe 3s ease-in-out infinite';
+                
+                // Определяем стиль анимации
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes breathe {
+                        0%, 100% { transform: scale(1); }
+                        50% { transform: scale(1.05); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        });
+    </script>
+</body>
+</html>
